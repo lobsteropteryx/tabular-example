@@ -2,7 +2,7 @@
   <Database>
     <DataSources>
       <DataSource>
-        <ID>Scorecard</ID>
+        <ID>TabularExample</ID>
         <ConnectionString>Provider=SQLNCLI11;Data Source=$databaseServer;Persist Security Info=false;User ID=;Initial Catalog=$environment;Initial File Name=;Server SPN=</ConnectionString>
         <ManagedProvider></ManagedProvider>
         <ImpersonationInfo>

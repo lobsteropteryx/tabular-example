@@ -14,4 +14,4 @@ $ErrorActionPreference = "Stop"
 $SECURE_PASSWORD = ConvertTo-SecureString $analysisServicesPassword -AsPlainText -Force
 $CREDENTIAL = New-Object System.Management.Automation.PSCredential ($analysisServicesUsername, $SECURE_PASSWORD)
 
-Invoke-ProcessASDatabase -Server $analysisServicesServer -RefreshType Full -DatabaseName "tabular-$environment" -Credential $CREDENTIAL
+Invoke-ProcessASDatabase -Server $analysisServicesServer -RefreshType Full -DatabaseName "$environment" -Credential $CREDENTIAL

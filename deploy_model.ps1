@@ -29,12 +29,6 @@ $template = Get-Content .\deploymentoptions\Model.deploymenttargets
 $expandedTemplate = $ExecutionContext.InvokeCommand.ExpandString($template)
 $expandedTemplate | Set-Content "$deploymentDir\Model.deploymenttargets"
 
-# Update data sources with parameters
-$dataSource = $databaseServer
-$template = Get-Content .\deploymentoptions\Model.configsettings
-$expandedTemplate = $ExecutionContext.InvokeCommand.ExpandString($template)
-$expandedTemplate | Set-Content "$deploymentDir\Model.configsettings"
-
 # Create the deployment script
 Microsoft.AnalysisServices.Deployment.exe "$deploymentDir\Model.asdatabase" /s:"$deploymentDir\deploy.log" /o:"$deploymentDir\deploy.xmla" | Out-Default
 

@@ -1,27 +1,19 @@
 {
   "name": "SemanticModel",
-  "compatibilityLevel": 1400,
+  "compatibilityLevel": 1200,
   "model": {
     "culture": "en-US",
     "dataSources": [
       {
-        "type": "structured",
         "name": "TabularExample",
-        "connectionDetails": {
-          "protocol": "tds",
-          "address": {
-            "server": "localhost",
-            "database": "validation"
-          },
-          "authentication": null,
-          "query": null
-        },
-        "options": {},
-        "credential": {
-          "AuthenticationKind": "UsernamePassword",
-          "Username": "test",
-          "EncryptConnection": false
-        }
+        "connectionString": "Provider=SQLNCLI11;Data Source=localhost;Initial Catalog=validation;User ID=test;Persist Security Info=true",
+        "impersonationMode": "impersonateServiceAccount",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
       }
     ],
     "tables": [
@@ -31,28 +23,38 @@
           {
             "name": "name",
             "dataType": "string",
-            "sourceColumn": "name"
+            "sourceColumn": "name",
+            "sourceProviderType": "WChar"
           },
           {
             "name": "age",
             "dataType": "double",
-            "sourceColumn": "age"
+            "sourceColumn": "age",
+            "sourceProviderType": "Numeric"
           }
         ],
         "partitions": [
           {
-            "name": "Partition",
+            "name": "person",
             "dataView": "full",
             "source": {
-              "type": "m",
-              "expression": [
-                "let",
-                "    Source = #\"TabularExample\",",
-                "    dbo_person = Source{[Schema=\"dbo\",Item=\"person\"]}[Data]",
-                "in",
-                "    dbo_person"
-              ]
+              "query": " SELECT [dbo].[person].* FROM [dbo].[person] ",
+              "dataSource": "TabularExample"
             }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[person].* FROM [dbo].[person] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "person"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
           }
         ]
       }
@@ -60,7 +62,7 @@
     "annotations": [
       {
         "name": "ClientCompatibilityLevel",
-        "value": "500"
+        "value": "400"
       }
     ]
   },

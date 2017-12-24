@@ -3,7 +3,7 @@
     <DataSources>
       <DataSource>
         <ID>TabularExample</ID>
-        <ConnectionString>Provider=SQLNCLI11;Data Source=$databaseServer;Persist Security Info=false;User ID=;Initial Catalog=$environment;Initial File Name=;Server SPN=</ConnectionString>
+        <ConnectionString>Provider=SQLNCLI11;Data Source=$dataSource;Persist Security Info=false;User ID=;Initial Catalog=$environment;Initial File Name=;Server SPN=</ConnectionString>
         <ManagedProvider></ManagedProvider>
         <ImpersonationInfo>
           <ImpersonationMode xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">ImpersonateServiceAccount</ImpersonationMode>

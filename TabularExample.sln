@@ -17,20 +17,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		run_validation.ps1 = run_validation.ps1
 	EndProjectSection
 EndProject
-Project("{6870E480-7721-4708-BFB8-9AE898AA21B3}") = "TabularExample", "TabularExample.smproj", "{8CE414BB-95B2-4C99-9E03-51BA72086E22}"
+Project("{6870E480-7721-4708-BFB8-9AE898AA21B3}") = "TabularExample", "TabularExample.smproj", "{AEBEA0DB-A372-42F0-9467-B8A9DFDFBC13}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Development|x86 = Development|x86
 		validation|x86 = validation|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8CE414BB-95B2-4C99-9E03-51BA72086E22}.Development|x86.ActiveCfg = Development|x86
-		{8CE414BB-95B2-4C99-9E03-51BA72086E22}.Development|x86.Build.0 = Development|x86
-		{8CE414BB-95B2-4C99-9E03-51BA72086E22}.Development|x86.Deploy.0 = Development|x86
-		{8CE414BB-95B2-4C99-9E03-51BA72086E22}.validation|x86.ActiveCfg = validation|x86
-		{8CE414BB-95B2-4C99-9E03-51BA72086E22}.validation|x86.Build.0 = validation|x86
-		{8CE414BB-95B2-4C99-9E03-51BA72086E22}.validation|x86.Deploy.0 = validation|x86
+		{AEBEA0DB-A372-42F0-9467-B8A9DFDFBC13}.validation|x86.ActiveCfg = validation|x86
+		{AEBEA0DB-A372-42F0-9467-B8A9DFDFBC13}.validation|x86.Build.0 = validation|x86
+		{AEBEA0DB-A372-42F0-9467-B8A9DFDFBC13}.validation|x86.Deploy.0 = validation|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -16,7 +16,7 @@ $ErrorActionPreference = "Stop"
 
 # Build the model
 $msbuild = 'c:\Program files (x86)\MSBuild\14.0\Bin\MSBuild.exe'
-& "$msbuild" TabularExample.smproj "/p:Configuration=$environment" /t:Build /p:VisualStudioVersion=14.0
+& "$msbuild" TabularExample.smproj "/p:Configuration=$environment" /t:Clean,Build /p:VisualStudioVersion=14.0
 
 # Copy build outputs and deployment options to deployment directory
 $deploymentDir = ".\deployment"
@@ -30,6 +30,7 @@ $expandedTemplate = $ExecutionContext.InvokeCommand.ExpandString($template)
 $expandedTemplate | Set-Content "$deploymentDir\Model.deploymenttargets"
 
 # Update data sources with parameters
+$dataSource = $databaseServer
 $template = Get-Content .\deploymentoptions\Model.configsettings
 $expandedTemplate = $ExecutionContext.InvokeCommand.ExpandString($template)
 $expandedTemplate | Set-Content "$deploymentDir\Model.configsettings"

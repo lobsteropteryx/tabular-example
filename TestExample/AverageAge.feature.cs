@@ -31,7 +31,7 @@ namespace TestExample
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "AverageAge", null, ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "AverageAge", "  Calculating the average age of people", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -64,11 +64,11 @@ namespace TestExample
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Two people with the same age")]
-        public virtual void TwoPeopleWithTheSameAge()
+        [NUnit.Framework.DescriptionAttribute("A single person")]
+        public virtual void ASinglePerson()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Two people with the same age", ((string[])(null)));
-#line 3
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A single person", ((string[])(null)));
+#line 4
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -77,10 +77,7 @@ this.ScenarioSetup(scenarioInfo);
             table1.AddRow(new string[] {
                         "Bob",
                         "5"});
-            table1.AddRow(new string[] {
-                        "Jane",
-                        "5"});
-#line 4
+#line 5
  testRunner.Given("I have persons:", ((string)(null)), table1, "Given ");
 #line 8
  testRunner.When("I query for average age", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -91,6 +88,70 @@ this.ScenarioSetup(scenarioInfo);
                         "5"});
 #line 9
  testRunner.Then("I expect the result to be:", ((string)(null)), table2, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Two people with the same age")]
+        public virtual void TwoPeopleWithTheSameAge()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Two people with the same age", ((string[])(null)));
+#line 13
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Age"});
+            table3.AddRow(new string[] {
+                        "Bob",
+                        "5"});
+            table3.AddRow(new string[] {
+                        "Jane",
+                        "5"});
+#line 14
+ testRunner.Given("I have persons:", ((string)(null)), table3, "Given ");
+#line 18
+ testRunner.When("I query for average age", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Average"});
+            table4.AddRow(new string[] {
+                        "5"});
+#line 19
+ testRunner.Then("I expect the result to be:", ((string)(null)), table4, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Blank ages are treated as zero")]
+        public virtual void BlankAgesAreTreatedAsZero()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Blank ages are treated as zero", ((string[])(null)));
+#line 23
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Age"});
+            table5.AddRow(new string[] {
+                        "Bob",
+                        "5"});
+            table5.AddRow(new string[] {
+                        "Jane",
+                        ""});
+#line 24
+ testRunner.Given("I have persons:", ((string)(null)), table5, "Given ");
+#line 28
+ testRunner.When("I query for average age", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Average"});
+            table6.AddRow(new string[] {
+                        "2.5"});
+#line 29
+ testRunner.Then("I expect the result to be:", ((string)(null)), table6, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

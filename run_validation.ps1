@@ -20,8 +20,9 @@ $asConnectionString = "Data Source=$analysisServicesServer;Catalog=validation;Us
 $sqlConnectionString = "Server=$databaseServer;Database=validation;User Id=$databaseUsername; Password=$databasePassword;"
 [Environment]::SetEnvironmentVariable("SemanticModelAcceptanceTestSqlConnectionString", $sqlConnectionString)
 
-& "$nuget" restore SemanticLayer.sln
+$solution = "TabularExample.sln"
+& "$nuget" restore $solution
 
-& "$msbuild" SemanticLayer.sln /p:VisualStudioVersion=14.0
+& "$msbuild" $solution /p:VisualStudioVersion=14.0
 
-packages\NUnit.ConsoleRunner.3.7.0\tools\nunit3-console.exe acceptance_tests\SemanticModelValidation\SemanticModelValidation.csproj 
+packages\NUnit.ConsoleRunner.3.7.0\tools\nunit3-console.exe TestExample\TestExample.csproj 

@@ -45,7 +45,7 @@ namespace TestExample
                         ""type"": ""full"",
                         ""objects"": [
                           {
-                            ""database"": ""TabularExample""
+                            ""database"": ""validation""
                           }
                         ]
                       }

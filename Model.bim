@@ -18,16 +18,16 @@
     ],
     "tables": [
       {
-        "name": "person",
+        "name": "Person",
         "columns": [
           {
-            "name": "name",
+            "name": "Name",
             "dataType": "string",
             "sourceColumn": "name",
             "sourceProviderType": "WChar"
           },
           {
-            "name": "age",
+            "name": "Age",
             "dataType": "double",
             "sourceColumn": "age",
             "sourceProviderType": "Numeric"
@@ -35,12 +35,18 @@
         ],
         "partitions": [
           {
-            "name": "person",
+            "name": "Person",
             "dataView": "full",
             "source": {
               "query": " SELECT [dbo].[person].* FROM [dbo].[person] ",
               "dataSource": "TabularExample"
             }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Average Age",
+            "expression": " AVERAGEX(Person, Person[Age])"
           }
         ],
         "annotations": [
